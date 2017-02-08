@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
 /**
@@ -43,6 +44,12 @@ public class PantallaBox2D extends PantallaInicio{
 
         BodyDef cuboDef = createCuboBodyDef();
         cuboBody = world.createBody(cuboDef);
+
+        PolygonShape cuboShape = new PolygonShape();
+        //se mide en metros
+        cuboShape.setAsBox(1, 1);
+        cuboFixture = cuboBody.createFixture(cuboShape, 1);
+        cuboShape.dispose();
 
     }
 
